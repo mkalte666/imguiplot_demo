@@ -1,0 +1,11 @@
+[submodule "3rdparty/imgui-cmake-blob"]
+	path = 3rdparty/imgui-cmake-blob
+	url = https://github.com/mkalte666/imgui-cmake-blob
+	branch = master
+[submodule "3rdparty/imguiplot"]
+	path = 3rdparty/imguiplot
+	url = https://github.com/mkalte666/imguiplot/
+	branch = master
+[submodule "3rdparty/fmt"]
+	path = 3rdparty/fmt
+	url = https://github.com/fmtlib/fmt/

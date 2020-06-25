@@ -1,5 +1,5 @@
 /*
- * This file is part of a Template Project
+ * This file is part of imguiplot_demo
  * Copyright (c) 2020 Malte Kießling
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,18 +15,27 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef TEMPLATE_PROJECT_NAME_MAIN_H
-#define TEMPLATE_PROJECT_NAME_MAIN_H
-/**
- * \file main.h
- * \brief Some Header
- */
+#ifndef IMGUIPLOT_DEMO_SHARED_H
+#define IMGUIPLOT_DEMO_SHARED_H
 
-/**
- * \brief Does something
- * \param param some Parameter
- * \return some result
- */
-int someFunction(int param);
+#include <SDL.h>
 
-#endif //TEMPLATE_PROJECT_NAME_MAIN_H
+#include <SDL.h>
+
+// clang-format off
+#include "imgui.h"
+#include "examples/imgui_impl_opengl3.h"
+#include "examples/imgui_impl_sdl.h"
+#include "misc/cpp/imgui_stdlib.h"
+#include "imguiplot.h"
+#include <GL/gl3w.h>
+// clang-format on
+
+#include <string>
+#include <vector>
+#include <random>
+#include <cstddef>
+#include <cstdint>
+#include <fmt/format.h>
+
+#endif //IMGUIPLOT_DEMO_SHARED_H

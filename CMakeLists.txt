@@ -32,16 +32,31 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-project(template_project_name)
+set(imguiIncludeDir
+    ${CMAKE_SOURCE_DIR}/3rdparty/imgui-cmake-blob/imgui/
+    CACHE PATH "Path to imgui headers")
+add_subdirectory(3rdparty/imgui-cmake-blob)
+add_subdirectory(3rdparty/imguiplot)
+add_subdirectory(3rdparty/fmt)
+find_package(SDL2 REQUIRED)
 
-add_executable(template_exe include/main.h include/main.h src/main.cpp
-                            src/main.cpp)
-target_include_directories(template_exe PRIVATE include/)
+project(imguiplot_demo)
 
-enablestrictoptions(template_exe)
+add_executable(imguiplot_demo include/messagebox.h include/plotdemo.h
+                              include/shared.h src/main.cpp src/plotdemo.cpp)
+target_include_directories(imguiplot_demo PRIVATE include/)
+target_link_libraries(
+    imguiplot_demo
+    fmt::fmt
+    imguiplot
+    imgui
+    gl3w
+    SDL2::SDL2main
+    SDL2::SDL2)
+enablestrictoptions(imguiplot_demo)
 
 install(
-    TARGETS template_exe
+    TARGETS imguiplot_demo
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib)
 
@@ -50,5 +65,5 @@ if(DOXYGEN_FOUND)
     set(DOXYGEN_GENERATE_LATEX YES)
     set(DOXYGEN_EXTRACT_ALL YES)
     set(DOXYGEN_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc)
-    doxygen_add_docs(template_exe_docs src/ include/ doc/)
+    doxygen_add_docs(imguiplot_demo_docs src/ include/ doc/)
 endif()
